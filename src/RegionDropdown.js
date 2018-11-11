@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import CountryRegionData from '../node_modules/country-region-data/data.json';
 import C from './constants';
 
+import Select from '@material-ui/core/Select';
+
 export default class RegionDropdown extends Component {
 	constructor (props) {
 		super(props);
@@ -125,10 +127,10 @@ export default class RegionDropdown extends Component {
 		}
 
 		return (
-			<select {...attrs}>
+			<Select {...attrs}>
 				{this.getDefaultOption()}
 				{this.getRegionList()}
-			</select>
+			</Select>
 		);
 	}
 }

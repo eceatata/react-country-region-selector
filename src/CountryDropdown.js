@@ -5,6 +5,7 @@ import C from './constants';
 import * as helpers from './helpers';
 
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 export default class CountryDropdown extends Component {
 
@@ -20,9 +21,9 @@ export default class CountryDropdown extends Component {
 		const { valueType, labelType } = this.props;
 
 		return this.state.countries.map(([countryName, countrySlug]) => (
-			<option value={(valueType === C.DISPLAY_TYPE_SHORT) ? countrySlug : countryName} key={countrySlug}>
+			<MenuItem value={(valueType === C.DISPLAY_TYPE_SHORT) ? countrySlug : countryName} key={countrySlug}>
 				{(labelType === C.DISPLAY_TYPE_SHORT) ? countrySlug : countryName}
-			</option>
+			</MenuItem>
 		));
 	}
 
@@ -32,7 +33,7 @@ export default class CountryDropdown extends Component {
 			return null;
 		}
 		return (
-			<option value="" key="default">{defaultOptionLabel}</option>
+			<MenuItem value="" key="default">{defaultOptionLabel}</MenuItem>
 		);
 	}
 

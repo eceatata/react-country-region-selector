@@ -4,6 +4,7 @@ import CountryRegionData from '../node_modules/country-region-data/data.json';
 import C from './constants';
 
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 export default class RegionDropdown extends Component {
 	constructor (props) {
@@ -88,7 +89,7 @@ export default class RegionDropdown extends Component {
 		return this.state.regions.map(({ regionName, regionShortCode }) => {
 			const label = (labelType === C.DISPLAY_TYPE_FULL) ? regionName : regionShortCode;
 			const value = (valueType === C.DISPLAY_TYPE_FULL) ? regionName : regionShortCode;
-			return <option value={value} key={regionName}>{label}</option>;
+			return <MenuItem value={value} key={regionName}>{label}</MenuItem>;
 		});
 	}
 
@@ -97,10 +98,10 @@ export default class RegionDropdown extends Component {
 	getDefaultOption () {
 		const { blankOptionLabel, showDefaultOption, defaultOptionLabel, country } = this.props;
 		if (!country) {
-			return <option value="">{blankOptionLabel}</option>;
+			return <MenuItem value="">{blankOptionLabel}</MenuItem>;
 		}
 		if (showDefaultOption) {
-			return <option value="">{defaultOptionLabel}</option>;
+			return <MenuItem value="">{defaultOptionLabel}</MenuItem>;
 		}
 		return null;
 	}
